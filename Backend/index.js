@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import './Db/dbConnect.js'
 import "./helper/sendMail.js";
+import * as cookie from 'cookie';
 import User from "./Models/signup.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -10,12 +11,10 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 const PORT = 3000;
-
-pp.use(cors({
-    origin: ["https://smit-hackathon-frontend-theta.vercel.app", "http://localhost:5173"],
+app.use(cors({
+    origin: "http://localhost:5173",
     credentials: true
 }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
