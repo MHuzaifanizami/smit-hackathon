@@ -12,7 +12,7 @@ import jwt from "jsonwebtoken";
 const app = express();
 const PORT = 3000;
 app.use(cors({
-    origin: 'http://localhost:5173', // Your frontend URL
+    origin: "https://smit-hackathon-frontend-theta.vercel.app", 
     credentials: true // To allow cookies or sessions
   }));
 
