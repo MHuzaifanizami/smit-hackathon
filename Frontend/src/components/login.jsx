@@ -20,7 +20,7 @@ const LoginForm = () => {
     try {
       const response = await axios.post(
         "https://smit-hackathon-backend.vercel.app/api/v1/login",
-        { email: data.email, password: data.password }, // Send directly
+        { email: data.email, password: data.password },
         { withCredentials: true }
       );
 

@@ -30,7 +30,7 @@ app.use(
     })
   );
 
-  
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -110,14 +110,14 @@ app.post('/api/v1/login', async (req, res) => {
     }
     const user = await User.findOne({ email: email })
     if (!user) {
-        alert("user not found")
+        console.log("user not found");
         res.status(400).send({ message: "user not found" })
         return;
     }
 
-    const isPasswordMatch = bcrypt.compare(password, user.password)
+    const isPasswordMatch = await bcrypt.compare(password, user.password)
     if (!isPasswordMatch) {
-        alert("password is incorrect")
+        console.log("password is incorrect")
         res.status(400).send({ message: "password is incorrect" })
         return;
     }
@@ -130,6 +130,7 @@ app.post('/api/v1/login', async (req, res) => {
     res.cookie("token", token, {
         httpOnly: true,
         secure: true,
+        sameSite: "none" 
     })
 
 
