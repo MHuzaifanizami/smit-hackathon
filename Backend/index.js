@@ -12,12 +12,11 @@ import jwt from "jsonwebtoken";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// app.use(cors({
-//     origin: '*', 
-//     credentials: true, 
-//   }));
-
-app.use(cors());
+app.use(cors({
+    origin: 'https://smit-hackathon-frontend-theta.vercel.app',  
+    credentials: true, 
+  }));
+  
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

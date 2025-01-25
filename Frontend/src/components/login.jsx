@@ -18,11 +18,12 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://smit-hackathon-backend.vercel.app/api/v1/login", {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      , data}, { withCredentials: true });
+      const response = await axios.post(
+        "https://smit-hackathon-backend.vercel.app/api/v1/login",
+        { data },
+        { withCredentials: true }
+      );
+
       console.log("response", response);
       toast.success("Login successful");
       alert("Login successful");
