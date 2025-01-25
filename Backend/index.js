@@ -11,7 +11,8 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 const PORT = 3000;
-pp.use(cors({
+app.use(cors({
+    origin: "http://localhost:5173",
     credentials: true
 }));
 
@@ -29,7 +30,7 @@ app.post(`/api/v1/signup`, async (req, res) => {
 
 
     if (!req.body.name || !req.body.email || !req.body.password) {
-        res.send({ message: "Missing some parameters" })
+       return  res.send({ message: "Missing some parameters" })
     }
 
     const user = await User.findOne({ email: req.body.email })
