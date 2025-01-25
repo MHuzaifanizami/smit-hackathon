@@ -2,18 +2,20 @@
   "version": 2,
   "builds": [
     {
-      "src": "/index.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "headers": {
-        "key": "Access-Control-Allow-Origin",
-        "value": "http://localhost:5173"
+        "Access-Control-Allow-Origin": "https://smit-hackathon-frontend-theta.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Allow-Credentials": "true"
       },
-      "dest": "/index.js"
+      "dest": "/api/$1"
     }
   ]
 }
