@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 
 const LoginForm = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -18,14 +18,14 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/login", data , {withCredentials: true , });
-      console.log(response);
+      const response = await axios.post("https://smit-hackathon-backend.vercel.app/api/v1/login", data , {  withCredentials: true });
+      console.log("response", response);
       toast.success("Login successful");
-      alert("Login successful") ;
-       navigate("/dashboard");
+      alert("Login successful");
+      navigate("/dashboard");
 
     } catch (error) {
-      console.log(error.response.data.message);
+      console.log(erro.response?.data?.message || "unknown error occurred");
       alert("Invalid email or password");
     }
   };
