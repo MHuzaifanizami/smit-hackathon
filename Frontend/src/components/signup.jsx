@@ -11,8 +11,6 @@ const SignUpForm = () => {
         confirmPassword: "",
     });
 
-    // console.log("data", data);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (data.password !== data.confirmPassword) {
@@ -21,13 +19,13 @@ const SignUpForm = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/signup", data ,);
+            const response = await axios.post(`https://smit-hackathon-backend.vercel.app/api/v1/signup`, data,);
             console.log("response", response);
             alert("User created successfully");
             navigate("/login");
         } catch (error) {
 
-            alert(error?.response?.data?.message || error?.message ||  "An error occurred");
+            alert(error?.response?.data?.message || error?.message || "An error occurred");
             console.log("Error during signup:", error?.response?.data?.message);
             // alert("An error occurred incatxh");
         }
