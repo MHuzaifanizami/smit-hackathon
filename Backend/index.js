@@ -13,8 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors({
-    origin: 'https://smit-hackathon-frontend-theta.vercel.app',  
-    credentials: true, 
+    origin: 'https://smit-hackathon-frontend-theta.vercel.app'
   }));
   
 
