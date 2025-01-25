@@ -25,7 +25,7 @@ const LoginForm = () => {
       navigate("/dashboard");
 
     } catch (error) {
-      console.log(erro.response?.data?.message || "unknown error occurred");
+      console.log(error.response?.data?.message || "unknown error occurred");
       alert("Invalid email or password");
     }
   };
